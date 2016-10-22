@@ -18,11 +18,12 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    # @job = Job.find(params[:id])
   end
 
   def destroy
     @category = Category.find(params[:id])
-    if @category.delete
+    if @category.destroy
       redirect_to categories_path
     else
       render :new
