@@ -1,1 +1,10 @@
 <h1>Your Dashboard</h1>
+
+<% @jobs.each do |job| %>
+  <ol><%= job.title %> <%= job.level_of_interest %></ol>
+<% end %>
+
+<h1>Top Three Companies by Level of Interest</h1>
+<% @companies.each do |company| %>
+  <ol><%= company.name %> <%= company.jobs.average(:level_of_interest).round(1) %></ol>
+<% end %>
