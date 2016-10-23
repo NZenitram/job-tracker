@@ -1,14 +1,13 @@
 class JobsController < ApplicationController
 
   def index
-    @contacts = Contact.all
-    @contact = Contact.new
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+      @contacts = Contact.all
+      @contact = Contact.new
+      @company = Company.find(params[:company_id])
+      @jobs = @company.jobs
   end
 
   def new
-
     @categories = Category.all
     @company = Company.find(params[:company_id])
     @job = Job.new()
@@ -50,8 +49,6 @@ class JobsController < ApplicationController
   def destroy
     job = Job.find(params[:id])
     job.delete
-
-    # flash[:success] = "#{job.title} was successfully deleted!"
     redirect_to company_jobs_path
   end
 

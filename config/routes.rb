@@ -5,11 +5,16 @@ Rails.application.routes.draw do
     resources :jobs
   end
   # The priority is based upon order of creation: first created -> highest priority.
+  resources :jobs, only: [:index]
+
   resources :categories
 
-  resources :comments
+  resources :comments, only: [:create]
 
-  resources :contacts
+  resources :contacts, only: [:create]
+
+  get 'dashboard', to: 'dashboard#index'
+
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

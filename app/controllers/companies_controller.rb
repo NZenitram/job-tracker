@@ -1,7 +1,17 @@
 class CompaniesController < ApplicationController
+
   def index
-    @companies = Company.all
-  end
+      @company = Company.where(city: params[:location])
+      @companies = Company.all.order(:city)
+      @jobs = Company.where(city: params[:location])
+      if params.include?("sort")
+        render :location
+      elsif params.keys.include?("location")
+        render :city
+      else
+        render :index
+      end
+    end
 
   def new
     @company = Company.new

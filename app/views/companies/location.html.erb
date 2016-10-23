@@ -1,0 +1,10 @@
+<h1>Companies and Jobs by City</h1>
+
+<ol>
+<% @companies.each do |company| %>
+<li><%= company.name %>: <%= company.city %></li>
+<% company.jobs.each do |job| %>
+  <%= job.title %></br>
+  <% end  %>
+<% end %>
+</ol>
