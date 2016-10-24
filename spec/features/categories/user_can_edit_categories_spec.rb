@@ -3,7 +3,6 @@ require 'rails_helper'
 describe "the category index page and actions" do
   scenario "a user can edit categories available" do
     Category.create(title: "Developer")
-    Category.create(title: "IT")
 
     visit categories_path
     click_on("Edit")
@@ -12,3 +11,4 @@ describe "the category index page and actions" do
 
     expect(page).to have_content("Service")
   end
+end
