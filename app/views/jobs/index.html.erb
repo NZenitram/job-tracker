@@ -3,6 +3,7 @@ All Jobs for <strong><%= @company.name %></strong>
 <% @jobs.each do |job| %>
   <ul><%= link_to job.title, company_job_path(@company, job.id) %> at <%= job.company.name %></ul>
 <% end %>
+<%= link_to "Companies Index", companies_path %>
 
 <h3>Enter Contact</h3>
 <%= form_for @contact do |f| %>
@@ -19,6 +20,7 @@ All Jobs for <strong><%= @company.name %></strong>
 
   <%= f.submit %>
 <% end %>
+
 
 <% @company.contacts.each do |contact| %>
   <p><%= contact.full_name %>, <%= contact.position %>, <%= contact.email %></p>
