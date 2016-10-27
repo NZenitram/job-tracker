@@ -1,0 +1,8 @@
+<h1> Available Job Categories</h1>
+
+<% @category.each do |category| %>
+  <ul class="category_">
+    <%= link_to category.title, category_path(category) %> <%= link_to "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure you want to delete this category?" } %> <%= link_to "Edit", edit_category_path(category) %>
+  </ul>
+<% end %>
+<%= link_to "Create New", new_category_url %>
